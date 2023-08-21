@@ -11,12 +11,15 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.FocusRequester.Companion.createRefs
+import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi
 import com.example.myapplication.designsystem.TopTopVideoPlayer
+import com.example.myapplication.video.composables.SideBarView
+import com.example.myapplication.video.composables.VideoInfoArea
 
 @UnstableApi
 
@@ -69,7 +72,7 @@ fun VideoDetailScreen(player: Player, handlerAction: (VideoDetailAction) -> Unit
                 handlerAction(VideoDetailAction.ToggleVideo)
             })
     ) {
-        val (videoPlayer, sideBar) = createRefs()
+        val (videoPlayer, sideBar,videoInfo) = createRefs()
         TopTopVideoPlayer(player = player, modifier = Modifier.constrainAs(videoPlayer) {
             top.linkTo(parent.top)
             bottom.linkTo(parent.bottom)
@@ -78,6 +81,31 @@ fun VideoDetailScreen(player: Player, handlerAction: (VideoDetailAction) -> Unit
             width = Dimension.matchParent
             height = Dimension.matchParent
         })
+
+        SideBarView(
+            onAvatarClick = { /*TODO*/ },
+            onLikeClick = { /*TODO*/ },
+            onChatClick = { /*TODO*/ },
+            onSaveClick = { /*TODO*/ },
+            modifier = Modifier.constrainAs(sideBar){
+                end.linkTo(parent.end, margin = 16.dp)
+                bottom.linkTo(parent.bottom, margin = 16.dp)
+
+            }) {
+            
+        }
+        VideoInfoArea(
+            accountName = "NgaHq",
+            videoName = "Top Top",
+            hastTag = listOf("jetpack compose", "android", "top top"),
+            songName = "Making my way",
+            modifier = Modifier.constrainAs(videoInfo){
+                start.linkTo(parent.start,margin = 16.dp)
+                bottom.linkTo(sideBar.bottom)
+                end.linkTo(sideBar.end)
+                width = Dimension.fillToConstraints
+            }
+        )
 
 
     }
