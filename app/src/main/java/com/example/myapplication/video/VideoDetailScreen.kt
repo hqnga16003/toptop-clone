@@ -24,7 +24,7 @@ import com.example.myapplication.video.composables.VideoInfoArea
 @UnstableApi
 
 @Composable
-fun VideoDetailScreen(videoId: Int, videoViewModel: VideoDetailViewModel = hiltViewModel()) {
+fun VideoDetailScreen(videoId: Int, videoViewModel: VideoDetailViewModel ) {
     val uiState = videoViewModel.uiState.collectAsState()
     if (uiState.value == VideoDetailUiState.Default) {
         videoViewModel.handleAction(VideoDetailAction.LoadData(videoId))

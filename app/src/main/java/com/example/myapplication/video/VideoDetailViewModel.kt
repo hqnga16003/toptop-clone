@@ -1,5 +1,6 @@
 package com.example.myapplication.video
 
+import android.util.Log
 import androidx.compose.animation.core.RepeatMode
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -27,6 +28,7 @@ class VideoDetailViewModel @Inject constructor(
         get() = _uiState
 
     init {
+        Log.d("XXX","1")
         videoPlayer.repeatMode = REPEAT_MODE_ALL
         videoPlayer.playWhenReady = true
         videoPlayer.prepare()
@@ -69,6 +71,11 @@ class VideoDetailViewModel @Inject constructor(
             else
                 videoPlayer.play()
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        videoPlayer.release()
     }
 }
 
