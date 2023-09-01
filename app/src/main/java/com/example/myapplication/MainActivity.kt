@@ -18,6 +18,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.myapplication.ui.MainScreen
+import com.example.myapplication.ui.following.FollowingScreen
 import com.example.myapplication.ui.foryou.ListForUVideoScreen
 import com.example.myapplication.ui.theme.MyApplicationTheme
 import com.example.myapplication.video.VideoDetailScreen
@@ -35,7 +37,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    ListForUVideoScreen()
+                    MainScreen()
                 }
             }
         }

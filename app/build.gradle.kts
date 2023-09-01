@@ -66,6 +66,8 @@ dependencies {
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
+    debugImplementation("androidx.compose.ui:ui-util")
+
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
@@ -79,6 +81,8 @@ dependencies {
     implementation("androidx.media3:media3-exoplayer:1.0.0")
     implementation("androidx.media3:media3-exoplayer-dash:1.0.0")
     implementation("androidx.media3:media3-ui:1.0.0")
+
+
 }
 kapt {
     correctErrorTypes = true

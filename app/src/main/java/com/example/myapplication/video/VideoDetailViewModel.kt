@@ -28,7 +28,6 @@ class VideoDetailViewModel @Inject constructor(
         get() = _uiState
 
     init {
-        Log.d("XXX","1")
         videoPlayer.repeatMode = REPEAT_MODE_ALL
         videoPlayer.playWhenReady = true
         videoPlayer.prepare()
